@@ -1,0 +1,340 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Courier New', Monaco, Consolas, monospace;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.ascii-art {
+    color: #FFFFFF;
+    text-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.9),
+        0 0 25px rgba(255, 255, 255, 0.7),
+        0 0 35px rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+    white-space: pre;
+    line-height: 1;
+    font-size: 23px;
+    text-align: center;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+    to {
+        text-shadow: 
+            0 0 20px rgba(255, 255, 255, 1),
+            0 0 30px rgba(255, 255, 255, 0.8),
+            0 0 40px rgba(255, 255, 255, 0.6);
+    }
+}
+
+.terminal-box {
+    border: 2px solid #FFFFFF;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    width: 90%;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.terminal-box:hover {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.terminal-prompt {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.command-text {
+    color: #CCCCCC;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.section {
+    padding: 2rem 1rem;
+}
+
+.tagline {
+    padding: 1rem;
+    border-top: 2px solid #FFFFFF;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.contact-divider {
+    border-top: 2px solid #FFFFFF;
+    margin: 1.5rem 0;
+    padding-top: 1.5rem;
+}
+
+.contact-item {
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+}
+
+.contact-label {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.contact-item a {
+    color: #CCCCCC;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #FFFFFF;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.section-divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #FFFFFF, transparent);
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: #FFFFFF;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+p {
+    line-height: 1.8;
+    margin: 1rem 0;
+    font-size: 1rem;
+}
+
+.highlight-text {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.achievement-card {
+    border: 2px solid #FFFFFF;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.achievement-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.card-description {
+    color: #999999;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.system-divider {
+    border-top: 2px solid #FFFFFF;
+    margin: 1.5rem 0;
+    padding-top: 1.5rem;
+}
+
+.system-title {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.system-line {
+    height: 2px;
+    background: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.system-info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.8rem 1.5rem;
+    margin-top: 1rem;
+}
+
+.system-label {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+.footer-text {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.flicker {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: flicker 3s linear infinite;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.6;
+    }
+}
+
+/* Mobile Responsive - Android & iOS */
+@media (max-width: 768px) {
+    .ascii-art {
+        font-size: 20px;
+        padding: 0 0.5rem;
+    }
+    
+    .hero {
+        padding: 1rem 0.5rem;
+    }
+    
+    .terminal-box {
+        padding: 1rem;
+        width: 95%;
+        margin: 1rem auto;
+    }
+    
+    .section {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 0.95rem;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contact-item {
+        font-size: 0.9rem;
+    }
+    
+    .system-info {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .system-label {
+        font-weight: bold;
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ascii-art {
+        font-size: 14px;
+    }
+    
+    .terminal-box {
+        padding: 0.8rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .achievement-icon {
+        font-size: 2.5rem;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+}
+
+/* Landscape mode optimization for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 2rem 1rem;
+    }
+    
+    .ascii-art {
+        font-size: 16px;
+    }
+}
